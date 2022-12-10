@@ -1,18 +1,16 @@
-﻿using System.Reflection.Metadata;
+﻿using System.IO;
 using DocumentCore.DescriptionBuilders;
 
 namespace DocumentCore.Documents
 {
-  public class SympleDocument : Document
+  public class SimpleDocument : Document
   {
+
     public override void BuildDescription(IDocumentDescriptionBuilder builder)
     {
-      using (var depthLevel = new DepthLevel(builder, this));
+      using var depthLevel = new DepthLevel(builder, this);
     }
 
-    public SympleDocument(string name) : base(name)
-    {
-
-    }
+    public SimpleDocument(string name) : base(name) {  }
   }
 }

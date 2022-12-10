@@ -1,4 +1,5 @@
-﻿using DocumentCore.DescriptionBuilders;
+﻿using System;
+using DocumentCore.DescriptionBuilders;
 using DocumentCore.Documents;
 
 namespace DocumentCore
@@ -15,7 +16,7 @@ namespace DocumentCore
     public DepthLevel(IDocumentDescriptionBuilder builder, Document complexDocument)
     {
       this.builder = builder;
-      this.builder.StartApendDocument(complexDocument);
+      this.builder.StartAppendDocument(complexDocument);
     }
   }
 }

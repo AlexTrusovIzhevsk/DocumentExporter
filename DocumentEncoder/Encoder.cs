@@ -1,31 +1,27 @@
-﻿using DocumentCore.Documents;
+﻿using Cowboy.Encryptions;
+using DocumentCore.Documents;
 
 namespace DocumentEncoder
 {
-  public class Encryption : SympleDocument
+  public class Encoder : IEncoder
   {
-    private Document document;
-    private string key;
+    private readonly IEncryptor encryptor;
 
-    public static Encryption Encrypt(Document document, string name, string key)
+    public Encryption Encode(Document document, string name, string password)
     {
-      return new Encryption(document, name, key);
+      var key = encryptor.Encrypt(document, password);
+      return new Encryption(name, key);
     }
 
-    public static Document Decrypt(Encryption encryption, string key)
+    public Document Decode(Encryption encryption, string password)
     {
-      if (encryption is null)
-        throw new ArgumentNullException();
-      if (encryption.key != key)
-        throw new ArgumentException(nameof(key));
-
-      return encryption.document;
+      var document = encryptor.Decrypt(encryption.Key, password);
+      return (Document)document;
     }
 
-    private Encryption(Document document, string name, string key) : base(name)
+    internal Encoder(IEncryptor encryptor)
     {
-      this.document = document;
-      this.key = key;
+      this.encryptor = encryptor;
     }
   }
 }

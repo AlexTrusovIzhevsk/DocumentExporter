@@ -1,4 +1,5 @@
-﻿using DocumentExporter.DocumentRepositories;
+﻿using System;
+using DocumentExporter.DocumentRepositories;
 
 namespace DocumentExporter
 {

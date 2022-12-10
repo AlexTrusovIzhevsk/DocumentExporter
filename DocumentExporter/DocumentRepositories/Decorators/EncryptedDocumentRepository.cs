@@ -1,15 +1,17 @@
-﻿using DocumentCore.Documents;
+﻿using System;
+using DocumentCore.Documents;
 using DocumentEncoder;
 
 namespace DocumentExporter.DocumentRepositories.Decorators
 {
   internal class EncryptedDocumentRepository : DocumentRepositoryDecorator
   {
-    private string key;
+    private readonly string key;
+    private readonly IEncoder encoder;
 
     public override int AddDocument(Document document)
     {
-      var encryptedDocument = Encryption.Encrypt(document, $"encrypted_{document.Name}", key);
+      var encryptedDocument = encoder.Encode(document, $"encrypted_{document.Name}", key);
       return repository.AddDocument(encryptedDocument);
     }
 
@@ -33,13 +35,14 @@ namespace DocumentExporter.DocumentRepositories.Decorators
       if (encryption is null)
         throw new ArgumentException($"Document {encryptedDocument.Id} is not encrypted");
 
-      var document = Encryption.Decrypt(encryption, key);
+      var document = encoder.Decode(encryption, key);
       return document;
     }
 
     public EncryptedDocumentRepository(IDocumentRepository repository, string key) : base(repository)
     {
       this.key = key;
+      this.encoder = EncoderFactory.CreateEncoder();
     }
   }
 }

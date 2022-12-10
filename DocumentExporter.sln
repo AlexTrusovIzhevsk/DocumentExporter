@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentTests", "DocumentTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentCore", "DocumentCore\DocumentCore.csproj", "{97AC44C7-255D-498E-AA4D-E455BEBACCE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentArchiver", "DocumentArchiver\DocumentArchiver.csproj", "{9237314A-9321-47D5-846F-5E3DC57B5974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentArchiver", "DocumentArchiver\DocumentArchiver.csproj", "{9237314A-9321-47D5-846F-5E3DC57B5974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentEncoder", "DocumentEncoder\DocumentEncoder.csproj", "{DCD462C5-ACFF-473D-ADF1-40D3B4094EED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentEncoder", "DocumentEncoder\DocumentEncoder.csproj", "{DCD462C5-ACFF-473D-ADF1-40D3B4094EED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HornsAndHooves.Packer", "HornsAndHooves.Packer\HornsAndHooves.Packer.csproj", "{EBA1A9DD-BB3B-41DD-B886-818C8B43143E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Сowboy.Encryptions", "Сowboy.Encryptions\Сowboy.Encryptions.csproj", "{6B1E0D38-6FFA-46D0-BF45-15BB7C7B70E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{DCD462C5-ACFF-473D-ADF1-40D3B4094EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCD462C5-ACFF-473D-ADF1-40D3B4094EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD462C5-ACFF-473D-ADF1-40D3B4094EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA1A9DD-BB3B-41DD-B886-818C8B43143E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA1A9DD-BB3B-41DD-B886-818C8B43143E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA1A9DD-BB3B-41DD-B886-818C8B43143E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA1A9DD-BB3B-41DD-B886-818C8B43143E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1E0D38-6FFA-46D0-BF45-15BB7C7B70E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1E0D38-6FFA-46D0-BF45-15BB7C7B70E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1E0D38-6FFA-46D0-BF45-15BB7C7B70E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1E0D38-6FFA-46D0-BF45-15BB7C7B70E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

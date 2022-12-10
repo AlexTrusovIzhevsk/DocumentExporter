@@ -10,7 +10,7 @@ namespace DocumentCore.DescriptionBuilders
     private StringBuilder stringBuilder;
     private int indent;
 
-    public void StartApendDocument(Document document)
+    public void StartAppendDocument(Document document)
     {
       indent += IndentStep;
 

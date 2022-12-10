@@ -1,10 +1,12 @@
-﻿namespace DocumentCore
-{
-  public class IdCreater
-  {
-    public static IdCreater Instance => instance.Value;
+﻿using System;
 
-    private static readonly Lazy<IdCreater> instance = new Lazy<IdCreater>(() => new IdCreater());
+namespace DocumentCore
+{
+  public class IdCreator
+  {
+    public static IdCreator Instance => instance.Value;
+
+    private static readonly Lazy<IdCreator> instance = new Lazy<IdCreator>(() => new IdCreator());
     private static int currentId = 0;
     private static object locker = new object();
 
@@ -14,6 +16,6 @@
         return currentId++;
     }
 
-    private IdCreater() { }
+    private IdCreator() { }
   }
 }

@@ -1,5 +1,6 @@
 using DocumentCore.DescriptionBuilders;
 using DocumentCore.Documents;
+using NUnit.Framework;
 
 namespace DocumentTests
 {
@@ -14,10 +15,10 @@ namespace DocumentTests
     }
 
     [Test]
-    public void CreateSympleDocument()
+    public void CreateSimpleDocument()
     {
       var documentName = "TestDocument";
-      var document = new SympleDocument(documentName);
+      var document = new SimpleDocument(documentName);
 
       document.BuildDescription(builder);
       var description = builder.GetResult();
@@ -28,8 +29,8 @@ namespace DocumentTests
     [Test]
     public void CreateTwoDocumentDifferentId()
     {
-      var document0 = new SympleDocument("Document0");
-      var document1 = new SympleDocument("Document1");
+      var document0 = new SimpleDocument("Document0");
+      var document1 = new SimpleDocument("Document1");
 
       Assert.That(document1.Id, Is.Not.EqualTo(document0.Id));
     }

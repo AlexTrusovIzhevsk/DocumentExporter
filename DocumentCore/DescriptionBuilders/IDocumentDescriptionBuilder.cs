@@ -4,7 +4,7 @@ namespace DocumentCore.DescriptionBuilders
 {
   public interface IDocumentDescriptionBuilder
   {
-    void StartApendDocument(Document document);
+    void StartAppendDocument(Document document);
     void EndAppendDocument();
     string GetResult();
     void Clear();

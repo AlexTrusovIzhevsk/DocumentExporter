@@ -1,4 +1,5 @@
-﻿using DocumentCore.DescriptionBuilders;
+﻿using System.Collections.Generic;
+using DocumentCore.DescriptionBuilders;
 
 namespace DocumentCore.Documents
 {

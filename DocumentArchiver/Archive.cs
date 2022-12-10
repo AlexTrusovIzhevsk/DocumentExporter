@@ -2,26 +2,13 @@
 
 namespace DocumentArchiver
 {
-  public class Archive : SympleDocument
+  public class Archive : SimpleDocument
   {
-    private Document document;
+    internal readonly object Key;
 
-    public static Archive Compress(Document document, string name)
+    internal Archive(string name, object key) : base(name)
     {
-      return new Archive(document, name);
-    }
-
-    public static Document Decompress(Archive archive)
-    {
-      if (archive is null)
-        throw new ArgumentNullException();
-
-      return archive.document;
-    }
-
-    private Archive(Document document, string name) : base(name)
-    {
-      this.document = document;
+      this.Key = key;
     }
   }
 }

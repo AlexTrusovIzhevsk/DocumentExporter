@@ -10,7 +10,7 @@ namespace DocumentCore.Documents
 
     public Document(string name)
     {
-      Id = IdCreater.Instance.NewId();
+      Id = IdCreator.Instance.NewId();
       Name = name;
     }
   }

@@ -1,5 +1,6 @@
 using DocumentCore.DescriptionBuilders;
 using DocumentCore.Documents;
+using NUnit.Framework;
 
 namespace DocumentTests
 {
@@ -11,12 +12,12 @@ namespace DocumentTests
     public void Setup()
     {
       document = new ComplexDocument("Root—omplexDocument")
-        .AddDocument(new SympleDocument("Document0"))
-        .AddDocument(new SympleDocument("Document1"))
+        .AddDocument(new SimpleDocument("Document0"))
+        .AddDocument(new SimpleDocument("Document1"))
         .AddDocument(new ComplexDocument("—omplexDocument")
-          .AddDocument(new SympleDocument("Document2"))
-          .AddDocument(new SympleDocument("Document3")))
-        .AddDocument(new SympleDocument("Document5"));
+          .AddDocument(new SimpleDocument("Document2"))
+          .AddDocument(new SimpleDocument("Document3")))
+        .AddDocument(new SimpleDocument("Document5"));
     }
 
     [Test]

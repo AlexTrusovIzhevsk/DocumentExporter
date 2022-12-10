@@ -1,4 +1,6 @@
-﻿using DocumentCore.Documents;
+﻿using System;
+using System.Collections.Generic;
+using DocumentCore.Documents;
 
 namespace DocumentExporter.DocumentRepositories
 {

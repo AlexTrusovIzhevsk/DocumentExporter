@@ -1,4 +1,5 @@
-﻿using DocumentCore.DescriptionBuilders;
+﻿using System;
+using DocumentCore.DescriptionBuilders;
 using DocumentCore.Documents;
 
 namespace DocumentExporter.DocumentRepositories.Decorators

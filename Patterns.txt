@@ -1,12 +1,19 @@
 Компоновщик.
-Класс Document выполняет роль предка всех узлов. ComplexDocument - состовной узел, SympleDocument - лист.
+Класс Document выполняет роль предка всех узлов. 
+ComplexDocument - состовной узел, SympleDocument - лист.
 
 Одиночка. 
 IdCreater - одиночка.
 
 Билдер.
-IDocumentDescriptionBuilder - интерфейс билдера, IndentDocumentDescriptionBuilder и XmlDocumentDescriptionBuilder - две реализации. Менеджером выступает сам компанощик.
+IDocumentDescriptionBuilder - интерфейс билдера.
+IndentDocumentDescriptionBuilder и XmlDocumentDescriptionBuilder - две реализации. 
+Менеджером выступает сам компанощик.
 
 Декоратор.
-IDocumentRepository - DocumentRepositoryDecorator декоратор над интерфейсом IDocumentRepository. CompressDocumentRepository, DocumentRepositoryConsoleLogger, EncryptedDocumentRepository.
+DocumentRepositoryDecorator декоратор над интерфейсом IDocumentRepository. 
+Конкретные декораторы - CompressDocumentRepository, DocumentRepositoryConsoleLogger, EncryptedDocumentRepository.
 
+Адаптер
+Archiver - Адаптер который адаптирует интерефейс IPacker внешнего модуля к интерефейсу IArchiver который знает про внутрение модели.
+Encoder - аналогично, адаптирует IEncryptor к IEncoder.

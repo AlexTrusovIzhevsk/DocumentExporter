@@ -1,4 +1,5 @@
-﻿using DocumentCore.DescriptionBuilders;
+﻿using System;
+using DocumentCore.DescriptionBuilders;
 using DocumentCore.Documents;
 using DocumentExporter;
 using DocumentExporter.DocumentRepositories;
@@ -10,24 +11,21 @@ namespace DocumentExporterProgram
   {
     public static void Main()
     {
-      var sympleDocument = new SympleDocument("SympleDocument");
+      var simpleDocument = new SimpleDocument("SimpleDocument");
 
       var complexDocument = new ComplexDocument("ComplexDocument")
-        .AddDocument(new SympleDocument("Document0"))
-        .AddDocument(new SympleDocument("Document1"));
+        .AddDocument(new SimpleDocument("Document0"))
+        .AddDocument(new SimpleDocument("Document1"));
 
       var multilevelСomplexDocument = new ComplexDocument("MultilevelСomplexDocument")
-        .AddDocument(new SympleDocument("Document2"))
-        .AddDocument(new SympleDocument("Document3"))
+        .AddDocument(new SimpleDocument("Document2"))
+        .AddDocument(new SimpleDocument("Document3"))
         .AddDocument(new ComplexDocument("InnerСomplexDocument")
-          .AddDocument(new SympleDocument("Document4"))
-          .AddDocument(new SympleDocument("Document5")))
-        .AddDocument(new SympleDocument("Document6"));
+          .AddDocument(new SimpleDocument("Document4"))
+          .AddDocument(new SimpleDocument("Document5")))
+        .AddDocument(new SimpleDocument("Document6"));
 
-      // Билдер который формирует описание в формате XML.
-      //var builder = new XmlDocumentDescriptionBuilder();
-
-      var builder = new IndentDocumentDescriptionBuilder();
+      var builder = GetDocumentDescriptionBuilder();
 
       var sourceRepository = 
         new DocumentRepositoryDecorateHelper(new DocumentRepository())
@@ -36,7 +34,7 @@ namespace DocumentExporterProgram
 
       DoCase("ЗАГРУЗКА ДАННЫХ", () =>
       {
-        sourceRepository.AddDocument(sympleDocument);
+        sourceRepository.AddDocument(simpleDocument);
         sourceRepository.AddDocument(complexDocument);
         sourceRepository.AddDocument(multilevelСomplexDocument);
       });
@@ -44,7 +42,7 @@ namespace DocumentExporterProgram
       var exporter = new DocumentExporter();
       DoCase("ПОЛУЧЕНИЕ ДАННЫХ", () =>
       {
-        exporter.Copy(sourceRepository, sympleDocument.Id, @"D:\TEMP");
+        exporter.Copy(sourceRepository, simpleDocument.Id, @"D:\TEMP");
         exporter.Copy(sourceRepository, complexDocument.Id, @"D:\TEMP");
       });
 
@@ -88,6 +86,15 @@ namespace DocumentExporterProgram
         var documentId = exporter.Relocate(sourceRepository, complexDocument.Id, destinationRepository);
         exporter.Relocate(destinationRepository, documentId, sourceRepository);
       });
+    }
+
+    private static IDocumentDescriptionBuilder GetDocumentDescriptionBuilder()
+    {
+      // Билдер который формирует описание в формате XML.
+      //return new XmlDocumentDescriptionBuilder();
+
+      // Билдер который формирует описание в формате отсупов.
+      return new IndentDocumentDescriptionBuilder();
     }
 
     private static void DoCase(string caseName, Action caseAction)
